@@ -72,9 +72,7 @@ function POS() {
     setCart((c) => {
       const i = c.findIndex((l) => l.barcode === code);
       if (i < 0) return [{ barcode: code, qty: 1 }, ...c];
-      const n = [...c];
-      n[i] = { ...n[i], qty: n[i].qty + 1 };
-      return n;
+      return c.map((l, j) => (j === i ? { ...l, qty: l.qty + 1 } : l));
     });
     setFlash(code + Date.now());
     notify(`Added ${p.name}`, true);
