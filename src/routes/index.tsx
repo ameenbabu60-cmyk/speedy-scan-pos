@@ -15,7 +15,7 @@ export const Route = createFileRoute("/")({
   component: POS,
 });
 
-type Variant = { id: string; name: string; price: number; barcode?: string };
+type Variant = { id: string; name: string; price: number; barcode?: string | undefined };
 type Product = { id: string; name: string; variants: Variant[] };
 type Line = { variantId: string; qty: number };
 
